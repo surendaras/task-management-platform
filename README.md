@@ -97,6 +97,12 @@ APP_CORS_ALLOWED_ORIGINS=http://127.0.0.1:5173,http://localhost:5173
 
 Permanent public URL ke liye Railway use karein. Is repo me backend aur frontend ke Dockerfiles ready hain.
 
+Current Railway deployment:
+
+- Frontend public URL: `https://frontend-production-9cfa.up.railway.app`
+- Backend API URL: `https://backend-production-1183.up.railway.app/api`
+- Railway project: `taskflow-management`
+
 1. Code GitHub par push karein:
 
 ```powershell
