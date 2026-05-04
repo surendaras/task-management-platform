@@ -66,13 +66,13 @@ Stop both:
 
 ## Deploy With Docker
 
-Docker Desktop start karke project root se run karein:
+Start Docker Desktop, then run this command from the project root:
 
 ```powershell
 docker compose up -d --build
 ```
 
-App open karein:
+Open the app:
 
 - Frontend: `http://127.0.0.1:5173`
 - Backend API: `http://127.0.0.1:8080/api`
@@ -84,7 +84,7 @@ Stop deployment:
 docker compose down
 ```
 
-Optional production variables `.env` file me set kar sakte hain:
+You can set optional production variables in a `.env` file:
 
 ```env
 MYSQL_ROOT_PASSWORD=change-this-password
@@ -95,15 +95,15 @@ APP_CORS_ALLOWED_ORIGINS=http://127.0.0.1:5173,http://localhost:5173
 
 ## Permanent Public Deployment
 
-Permanent public URL ke liye Railway use karein. Is repo me backend aur frontend ke Dockerfiles ready hain.
+Use Railway for a permanent public URL. This repository already includes Dockerfiles for both the backend and frontend.
 
 Current Railway deployment:
 
-- Frontend public URL: `https://frontend-production-9cfa.up.railway.app`
+- Frontend public URL: `https://frontend-production-9cfa.up.railway.app/workspace`
 - Backend API URL: `https://backend-production-1183.up.railway.app/api`
 - Railway project: `taskflow-management`
 
-1. Code GitHub par push karein:
+1. Push the code to GitHub:
 
 ```powershell
 git add .
@@ -111,11 +111,11 @@ git commit -m "Add deployment setup"
 git push origin main
 ```
 
-2. Railway me new project banayein: https://railway.com
+2. Create a new project in Railway: https://railway.com
 
-3. `+ New` se MySQL database add karein.
+3. Add a MySQL database from `+ New`.
 
-4. Backend service add karein:
+4. Add the backend service:
 
 - Source: GitHub repo `surendaras/task-management-platform`
 - Root directory: `backend`
@@ -130,13 +130,13 @@ JWT_SECRET=change-this-to-a-long-random-secret-value
 APP_CORS_ALLOWED_ORIGINS=https://your-frontend-domain.up.railway.app
 ```
 
-Generate Domain on backend service. Backend URL example:
+Generate a domain for the backend service. Backend URL example:
 
 ```text
 https://your-backend-domain.up.railway.app
 ```
 
-5. Frontend service add karein:
+5. Add the frontend service:
 
 - Source: same GitHub repo
 - Root directory: `frontend`
@@ -147,13 +147,13 @@ https://your-backend-domain.up.railway.app
 VITE_API_BASE_URL=https://your-backend-domain.up.railway.app/api
 ```
 
-Generate Domain on frontend service. Yehi app ka permanent public URL hoga:
+Generate a domain for the frontend service. This will be the permanent public URL for the app:
 
 ```text
 https://your-frontend-domain.up.railway.app
 ```
 
-6. Frontend domain milne ke baad backend ke `APP_CORS_ALLOWED_ORIGINS` me wahi frontend URL set karke backend redeploy karein.
+6. After you get the frontend domain, set the same URL in the backend `APP_CORS_ALLOWED_ORIGINS` variable and redeploy the backend.
 
 ## Main API Endpoints
 
